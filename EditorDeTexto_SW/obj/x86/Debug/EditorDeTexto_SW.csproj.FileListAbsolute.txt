@@ -65,3 +65,5 @@ D:\Documentos\MIS CURSOS\Maestria\1er Ciclo\Gestion de Proyectos\Tarea 1\EditorD
 D:\Documentos\MIS CURSOS\Maestria\1er Ciclo\Gestion de Proyectos\Tarea 1\EditorDeTexto_Sprint2-master\EditorDeTexto_Sprint2-master\EditorDeTexto_SW\obj\x86\Debug\EditorDeTexto_SW.Nostros.resources
 D:\Documentos\MIS CURSOS\Maestria\1er Ciclo\Gestion de Proyectos\Tarea 1\EditorDeTexto_Sprint2-master\EditorDeTexto_Sprint2-master\EditorDeTexto_SW\obj\x86\Debug\EditorDeTexto_SW.Properties.Resources.resources
 D:\Documentos\MIS CURSOS\Maestria\1er Ciclo\Gestion de Proyectos\Tarea 1\EditorDeTexto_Sprint2-master\EditorDeTexto_Sprint2-master\EditorDeTexto_SW\obj\x86\Debug\EditorDeTexto_SW.csproj.GenerateResource.Cache
+E:\Documents\MAESTRIA\CICLO I\GESTION DE PROYECTOS DE SW\PROYECTO GRUPAL\Sprint2\EditorDeTexto_SW\obj\x86\Debug\EditorDeTexto_SW.exe
+E:\Documents\MAESTRIA\CICLO I\GESTION DE PROYECTOS DE SW\PROYECTO GRUPAL\Sprint2\EditorDeTexto_SW\obj\x86\Debug\EditorDeTexto_SW.pdb

@@ -50,7 +50,7 @@
             this.BarraName = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtEditex = new System.Windows.Forms.TextBox();
             this.statusStrip2 = new System.Windows.Forms.StatusStrip();
-            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
+            this.ToolVersion = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.statusStrip2.SuspendLayout();
@@ -221,7 +221,7 @@
             this.txtEditex.Multiline = true;
             this.txtEditex.Name = "txtEditex";
             this.txtEditex.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtEditex.Size = new System.Drawing.Size(639, 318);
+            this.txtEditex.Size = new System.Drawing.Size(640, 318);
             this.txtEditex.TabIndex = 3;
             this.txtEditex.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtEditex_DragDrop);
             this.txtEditex.DragEnter += new System.Windows.Forms.DragEventHandler(this.txtEditex_DragEnter);
@@ -229,27 +229,26 @@
             // statusStrip2
             // 
             this.statusStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSplitButton1});
+            this.ToolVersion});
             this.statusStrip2.Location = new System.Drawing.Point(0, 368);
             this.statusStrip2.Name = "statusStrip2";
             this.statusStrip2.Size = new System.Drawing.Size(640, 22);
             this.statusStrip2.TabIndex = 4;
             this.statusStrip2.Text = "statusStrip2";
             // 
-            // toolStripSplitButton1
+            // ToolVersion
             // 
-            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
-            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 20);
-            this.toolStripSplitButton1.Text = "toolStripSplitButton1";
+            this.ToolVersion.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToolVersion.Name = "ToolVersion";
+            this.ToolVersion.Size = new System.Drawing.Size(11, 17);
+            this.ToolVersion.Text = ".";
             // 
             // EditorTMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(640, 390);
             this.Controls.Add(this.txtEditex);
             this.Controls.Add(this.statusStrip2);
@@ -294,6 +293,6 @@
         private System.Windows.Forms.ToolStripStatusLabel BarraName;
         private System.Windows.Forms.TextBox txtEditex;
         private System.Windows.Forms.StatusStrip statusStrip2;
-        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton1;
+        private System.Windows.Forms.ToolStripStatusLabel ToolVersion;
     }
 }

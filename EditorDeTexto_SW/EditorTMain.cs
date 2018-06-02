@@ -14,6 +14,7 @@ using System.Threading;
 namespace EditorDeTexto_SW
 //*****************************************************************************************************************************
 //                        EDITOR DE TEXTO
+//                          UNMSM - GPO
 //*****************************************************************************************************************************
    
 {
@@ -34,7 +35,7 @@ namespace EditorDeTexto_SW
         private void EditorTMain_Load(object sender, EventArgs e)
         {
             txtEditex.Focus();
-           
+            ToolVersion.Text = "v 1.00.2";           
         }
 
         private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -61,9 +62,7 @@ namespace EditorDeTexto_SW
                     {
                         Lines = line + "\r\n";
                         txtEditex.Text += Lines;
-
-                    }
-                                    
+                    }                                    
                 }
                 BarraName.Text = RutaArchivo;
                
@@ -108,16 +107,24 @@ namespace EditorDeTexto_SW
                 myStreamWriter = System.IO.File.AppendText(RutaArchivo);
                 myStreamWriter.Write(txtEditex.Text);
                 myStreamWriter.Flush();
-
                 RutaArchivo = Save.FileName;
-
             }
             catch (Exception) { }
         }
 
         private void guardarComoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            saveAs();
+            if (txtEditex.Text == "")
+            {
+                if (MessageBox.Show ("Favor de Escribir algun Mensaje para Guardar", "My Application",
+                 MessageBoxButtons.YesNo, MessageBoxIcon.Question)== DialogResult.Yes)  {               
+                txtEditex.Focus();
+                }
+            }
+            else
+            {
+                saveAs();
+            }            
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -168,28 +175,39 @@ namespace EditorDeTexto_SW
 
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-            System.IO.StreamWriter myStreamWriter = null;
-            if (System.IO.File.Exists(RutaArchivo))
+            if (txtEditex.Text == "")
             {
-                try
+                if (MessageBox.Show("Favor de Escribir algun Mensaje para Guardar", "My Application",
+                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-
-                    using (StreamWriter sw = new StreamWriter(RutaArchivo))
+                    txtEditex.Focus();
+                }                
+            }
+            else
+            {                
+                if (System.IO.File.Exists(RutaArchivo))
+                {
+                    try
                     {
-                        sw.Write(txtEditex.Text);
+                        using (StreamWriter sw = new StreamWriter(RutaArchivo))
+                        {
+                            sw.Write(txtEditex.Text);
+                        }
                     }
-                   
+                    catch (Exception)
+                    {
+                        Thread.Sleep(100);
+                        saveAsGuardar();
+                    }
+                    finally
+                    {
+                        BarraName.Text = RutaArchivo;
+                    }
                 }
-                catch (Exception ex)
-                {
-                    Thread.Sleep(100);
-                    saveAsGuardar();
-                }
-                finally {
-                    BarraName.Text = RutaArchivo;
-                }
-            }                 
+                else {
+                    saveAs();                
+                }            
+            }    
         }
 
         private void SendToPrinter(String filePath)
@@ -214,6 +232,8 @@ namespace EditorDeTexto_SW
         {
             try
             {
+                RutaArchivo = null; 
+               
                 String Nombre = null;
                 DataObject data = (DataObject)e.Data;
                 if (data.ContainsFileDropList())
@@ -227,6 +247,7 @@ namespace EditorDeTexto_SW
                             Nombre = path;
                             lines.AddRange(File.ReadAllLines(path));
                         }
+                        RutaArchivo = Nombre; 
                         BarraName.Text = Nombre;
                         txtEditex.Text = "";
                         var ListaArchivos = lines.ToArray();
@@ -259,9 +280,7 @@ namespace EditorDeTexto_SW
         private void txtEditex_DragEnter(object sender, DragEventArgs e)
         {
              e.Effect = DragDropEffects.Copy;
-        }
-
-        
+        }        
    }    
     
 }
